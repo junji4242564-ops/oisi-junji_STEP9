@@ -32,7 +32,7 @@
                         </td>
                         <td class="py-2">{{ number_format($product->price) }}</td>
                         <td class="py-2">
-                            <a href="#" class="bg-green-600 text-white px-3 py-1 rounded text-sm">詳細</a>
+                            <a href="{{ route('products.show', $product->id) }}" class="bg-green-600 text-white px-3 py-1 rounded text-sm">詳細</a>
                         </td>
                     </tr>
                 @endforeach

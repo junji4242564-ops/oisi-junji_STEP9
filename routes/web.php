@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\LikeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,6 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/mypage/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
     Route::put('/mypage/products/{product}', [ProductController::class, 'update'])->name('products.update');
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+    Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+    Route::post('/products/{product}/like', [LikeController::class, 'toggle'])->name('likes.toggle');
 });
 
 require __DIR__.'/auth.php';
