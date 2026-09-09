@@ -64,9 +64,9 @@ class ProductController extends Controller
     }
 
     public function showMine(Product $product)
-    {
-        return view('products.show-mine', compact('product'));
-    }
+{
+        return view('products.show_mine', compact('product'));
+}
 
     public function edit(Product $product)
     {
