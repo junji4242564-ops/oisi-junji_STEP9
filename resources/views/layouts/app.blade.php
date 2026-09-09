@@ -32,5 +32,18 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <footer class="bg-white shadow mt-8">
+    <div class="max-w-7xl mx-auto py-6 px-4 text-center">
+        <a href="{{ route('contact.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded inline-block mb-4">
+            お問い合わせ
+        </a>
+        <div class="flex justify-center gap-4 text-sm text-gray-600 mb-2">
+            <a href="{{ route('products.index') }}">Home</a>
+            <a href="{{ route('mypage') }}">マイページ</a>
+        </div>
+        <p class="text-xs text-gray-400">© 2024 Company, Inc</p>
+    </div>
+        </footer>
     </body>
 </html>

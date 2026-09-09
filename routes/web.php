@@ -6,6 +6,8 @@ use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AccountController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,6 +34,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/products/{product}/like', [LikeController::class, 'toggle'])->name('likes.toggle');
     Route::get('/products/{product}/purchase', [SaleController::class, 'create'])->name('sales.create');
     Route::post('/products/{product}/purchase', [SaleController::class, 'store'])->name('sales.store');
+    Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
+    Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+    Route::get('/account/edit', [AccountController::class, 'edit'])->name('account.edit');
+    Route::put('/account', [AccountController::class, 'update'])->name('account.update');
 });
 
 require __DIR__.'/auth.php';
