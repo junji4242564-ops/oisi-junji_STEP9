@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
     Route::get('/account/edit', [AccountController::class, 'edit'])->name('account.edit');
     Route::put('/account', [AccountController::class, 'update'])->name('account.update');
+    Route::get('/contact/complete', [ContactController::class, 'complete'])->name('contact.complete');
 });
 
 require __DIR__.'/auth.php';

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreContactRequest;
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -15,9 +17,14 @@ class ContactController extends Controller
     {
         $validated = $request->validated();
 
-        // 本来はメール送信処理を行うが、今回は簡易的にログ出力のみとする
-        \Log::info('お問い合わせ受信', $validated);
+        Mail::to(config('mail.admin_address', 'admin@example.com'))
+            ->send(new ContactMail($validated));
 
-        return redirect()->route('products.index');
+        return redirect()->route('contact.complete');
+    }
+
+    public function complete()
+    {
+        return view('contact.complete');
     }
 }
