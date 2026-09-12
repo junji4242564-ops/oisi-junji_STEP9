@@ -18,7 +18,7 @@ class UpdateAccountRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'name_kanji' => 'required|string|max:255',
-            'name_kana' => 'nullable|string|max:255',
+            'name_kana' => 'required|string|max:255',
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore(Auth::id())],
         ];
     }

@@ -17,10 +17,11 @@
         </div>
 
         <!-- Name (カナ) -->
+        <!-- Name (カナ) -->
         <div class="mt-4">
-           <x-input-label for="name_kana" :value="__('名前(カナ)')" />
-           <x-text-input id="name_kana" class="block mt-1 w-full" type="text" name="name_kana" :value="old('name_kana')" autocomplete="name_kana" />
-           <x-input-error :messages="$errors->get('name_kana')" class="mt-2" />
+            <x-input-label for="name_kana" :value="__('名前(カナ)')" />
+            <x-text-input id="name_kana" class="block mt-1 w-full" type="text" name="name_kana" :value="old('name_kana')" required autocomplete="name_kana" />
+            <x-input-error :messages="$errors->get('name_kana')" class="mt-2" />
         </div>
 
         <!-- Email Address -->

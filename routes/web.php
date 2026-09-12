@@ -30,6 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/mypage/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
     Route::put('/mypage/products/{product}', [ProductController::class, 'update'])->name('products.update');
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+    Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
+});
     Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
     Route::post('/products/{product}/like', [LikeController::class, 'toggle'])->name('likes.toggle');
     Route::get('/products/{product}/purchase', [SaleController::class, 'create'])->name('sales.create');
@@ -39,6 +41,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/account/edit', [AccountController::class, 'edit'])->name('account.edit');
     Route::put('/account', [AccountController::class, 'update'])->name('account.update');
     Route::get('/contact/complete', [ContactController::class, 'complete'])->name('contact.complete');
-});
+
 
 require __DIR__.'/auth.php';

@@ -16,10 +16,19 @@
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
+            <div class="w-full flex justify-between items-center px-6 sm:max-w-md">
                 <a href="/">
                     <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
                 </a>
+
+                <div class="text-sm">
+                    <a href="{{ route('login') }}" class="text-gray-600 hover:text-gray-900 {{ request()->routeIs('login') ? 'font-semibold underline' : '' }}">
+                        Login
+                    </a>
+                    <a href="{{ route('register') }}" class="ms-4 text-gray-600 hover:text-gray-900 {{ request()->routeIs('register') ? 'font-semibold underline' : '' }}">
+                        Register
+                    </a>
+                </div>
             </div>
 
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">

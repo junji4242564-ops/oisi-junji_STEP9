@@ -11,6 +11,28 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+
+public function search(Request $request)
+{
+    $query = Product::where('user_id', '!=', Auth::id());
+
+    if ($request->filled('product_name')) {
+        $query->where('product_name', 'like', '%' . $request->product_name . '%');
+    }
+
+    if ($request->filled('min_price')) {
+        $query->where('price', '>=', $request->min_price);
+    }
+
+    if ($request->filled('max_price')) {
+        $query->where('price', '<=', $request->max_price);
+    }
+
+    $products = $query->orderBy('id', 'asc')->get();
+
+    return response()->json($products);
+}
+
     public function index(Request $request)
     {
         $query = Product::where('user_id', '!=', Auth::id());
@@ -65,7 +87,7 @@ class ProductController extends Controller
 
     public function showMine(Product $product)
 {
-        return view('products.show_mine', compact('product'));
+    return view('products.show_mine', compact('product'));
 }
 
     public function edit(Product $product)
