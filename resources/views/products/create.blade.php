@@ -1,3 +1,4 @@
+cat > resources/views/products/create.blade.php << 'EOF'
 <x-app-layout>
     <div class="max-w-2xl mx-auto py-8 px-4">
         <h1 class="text-2xl font-bold mb-4">商品登録</h1>
@@ -42,3 +43,4 @@
         </form>
     </div>
 </x-app-layout>
+EOF
